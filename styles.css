@@ -6,29 +6,56 @@ body {
 
 #deckDiv {
     padding-top: 50px;
+    width: 750px;
 }
 
 #deckDiv span {
 
     display: inline-block;
     height: 60px;
-    width: 43px;
-    border: 2px blue solid;
+    width: 41px;
+    border: 1px black solid;
     margin: 5px;
     background-color: white;
-    text-align: right;
     border-radius: 4px;
-    font-size: 25px
+    font-size: 22px;
+    padding-left: 2px;
 }
 
 .redCard {
     color: red;    
 }
 
-#showButton, #shuffleButton {
+#showButton, #shuffleButton, #dealButton {
     width: 150px;
     height: 50px;
     border: 3px green solid;
     border-radius: 10px;
-    outline:none
+    outline: none;
+}
+
+#leftDiv, #rightDiv {
+    width: 260px;
+    height: 600px;
+    float: left;
+}
+
+#centerDiv {
+    width: 180px;
+    height: 600px;
+    float: left;
+}
+
+
+img {
+    width: 260px;
+    height: 195px;
+    border: 2px red solid;
+    border-radius: 5px;
+}
+
+
+#bigDeckImg {
+    width: 600px;
+    height: 450px;    
 }

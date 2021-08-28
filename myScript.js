@@ -71,9 +71,33 @@ function createDeckButton() {
 
 function shuffleDeckButton() {
     deck.shuffleDeck();
-    deck.displayDeck();
+    getMe("deckDiv").innerHTML = "";
+    let deckImg = document.createElement("IMG");
+    deckImg.src = "images/deckBig.jpg";
+    deckImg.id = "bigDeckImg";
+    getMe("deckDiv").appendChild(deckImg);
+    getMe("shuffleButton").style = "display: none";
+    getMe("dealButton").style = "visibility: visible";
 }
 
+function dealCardsButton() {
+    getMe("deckDiv").innerHTML = "";
+    const leftDiv = document.createElement("DIV");
+    const centerDiv = document.createElement("DIV");
+    const rightDiv = document.createElement("DIV");
+    leftDiv.id = "leftDiv";
+    centerDiv.id = "centerDiv";
+    rightDiv.id = "rightDiv";
+    getMe("deckDiv").appendChild(leftDiv);
+    getMe("deckDiv").appendChild(centerDiv);
+    getMe("deckDiv").appendChild(rightDiv);
+    let leftDeckImg = document.createElement("IMG");
+    leftDeckImg.src = "images/deckSmall.jpg";
+    getMe("leftDiv").appendChild(leftDeckImg);
+    let rightDeckImg = document.createElement("IMG");
+    rightDeckImg.src = "images/deckSmallRight.jpg";
+    getMe("rightDiv").appendChild(rightDeckImg);
+}
 
 
 
