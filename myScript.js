@@ -97,6 +97,14 @@ function dealCardsButton() {
     let rightDeckImg = document.createElement("IMG");
     rightDeckImg.src = "images/deckSmallRight.jpg";
     getMe("rightDiv").appendChild(rightDeckImg);
+    getMe("dealButton").style = "display: none";
+    let playButton = document.createElement("BUTTON");
+    playButton.setAttribute("type", "button");
+    playButton.setAttribute("id", "playButton");
+    playButton.setAttribute("onclick", "playWar()");
+    playButton.innerHTML = "PLAY";
+    getMe("centerDiv").appendChild(playButton);
+    // give all such buttons a class ("playButtons"?) and change it in the CSS file
 }
 
 

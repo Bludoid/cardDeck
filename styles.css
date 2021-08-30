@@ -26,7 +26,7 @@ body {
     color: red;    
 }
 
-#showButton, #shuffleButton, #dealButton {
+#showButton, #shuffleButton, #dealButton, #playButton {
     width: 150px;
     height: 50px;
     border: 3px green solid;
