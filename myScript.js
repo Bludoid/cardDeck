@@ -55,8 +55,24 @@ class Cards {
     }
 }
 
-const deck = new Cards();
 
+class Player {
+    constructor(name) {
+        this.name = name;
+        this.myDeck = [];
+    }
+    
+    flipCard() {
+        // flipped cards = this.myDeck.pop();
+    }
+}
+
+const deck = new Cards();
+let player1 = new Player("Bob");
+let player2 = new Player("Fred");
+
+
+//===========================================
 
 function getMe(myID){
     return document.getElementById(myID);
@@ -102,9 +118,17 @@ function dealCardsButton() {
     playButton.setAttribute("type", "button");
     playButton.setAttribute("id", "playButton");
     playButton.setAttribute("onclick", "playWar()");
+    playButton.setAttribute("class", "gameButtons");
     playButton.innerHTML = "PLAY";
     getMe("centerDiv").appendChild(playButton);
-    // give all such buttons a class ("playButtons"?) and change it in the CSS file
+    for (let i=0; i<deck.deckie.length; i++) {
+        if (i===0 || i%2===0) {
+            player1.myDeck.push(deck.deckie[i]);
+        }
+        else {
+            player2.myDeck.push(deck.deckie[i]);
+        }
+    }
 }
 
 

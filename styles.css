@@ -26,7 +26,7 @@ body {
     color: red;    
 }
 
-#showButton, #shuffleButton, #dealButton, #playButton {
+.gameButtons {
     width: 150px;
     height: 50px;
     border: 3px green solid;
@@ -44,18 +44,21 @@ body {
     width: 180px;
     height: 600px;
     float: left;
+    text-align: center;
 }
 
 
 img {
     width: 260px;
     height: 195px;
-    border: 2px red solid;
+    border: 2px blue solid;
     border-radius: 5px;
 }
-
+    
 
 #bigDeckImg {
     width: 600px;
     height: 450px;    
 }
+
+
