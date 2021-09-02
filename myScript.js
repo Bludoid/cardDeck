@@ -62,8 +62,15 @@ class Player {
         this.myDeck = [];
     }
     
-    flipCard() {
-        // flipped cards = this.myDeck.pop();
+    revealCard(myCard) {
+        let myBoard = getMe("centerDiv");
+        let cardSpan = document.createElement("SPAN");
+            cardSpan.innerHTML = (myCard.displayCard());
+            if (myCard.suit == "&hearts;" || myCard.suit == "&diams;") {
+                cardSpan.className = "redCard";
+            }
+            myBoard.appendChild(cardSpan);
+        // flipped cards = this.myDeck.pop();    
     }
 }
 
@@ -132,6 +139,20 @@ function dealCardsButton() {
 }
 
 
+function playWar() {
+    getMe("playButton").style = "display: none";
+    let flippedCard1 = player1.myDeck.pop(); 
+    player1.revealCard(flippedCard1);
+    let flippedCard2 = player2.myDeck.pop();
+    player2.revealCard(flippedCard2);
+    let solveButton = document.createElement("BUTTON");
+    solveButton.setAttribute("type", "button");
+    solveButton.setAttribute("id", "solveButton");
+    solveButton.setAttribute("onclick", "solveWar()");
+    solveButton.setAttribute("class", "gameButtons");
+    solveButton.innerHTML = "FINISH ROUND";
+    getMe("centerDiv").appendChild(solveButton);
+}
 
 
 
