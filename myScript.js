@@ -17,6 +17,7 @@ class Cards {
         this.myRanks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
         this.mySuits = ["&hearts;", "&diams;", "&spades;", "&clubs;"];
         this.deckie = [];
+        this.board = [];
     }
     
     createDeck() {
@@ -60,6 +61,7 @@ class Player {
     constructor(name) {
         this.name = name;
         this.myDeck = [];
+        this.myWonDeck = [];
     }
     
     revealCard(myCard) {
@@ -124,7 +126,7 @@ function dealCardsButton() {
     let playButton = document.createElement("BUTTON");
     playButton.setAttribute("type", "button");
     playButton.setAttribute("id", "playButton");
-    playButton.setAttribute("onclick", "playWar()");
+    playButton.setAttribute("onclick", "playWarButton()");
     playButton.setAttribute("class", "gameButtons");
     playButton.innerHTML = "PLAY";
     getMe("centerDiv").appendChild(playButton);
@@ -139,7 +141,7 @@ function dealCardsButton() {
 }
 
 
-function playWar() {
+function playWarButton() {
     getMe("playButton").style = "display: none";
     let flippedCard1 = player1.myDeck.pop(); 
     player1.revealCard(flippedCard1);
@@ -148,11 +150,32 @@ function playWar() {
     let solveButton = document.createElement("BUTTON");
     solveButton.setAttribute("type", "button");
     solveButton.setAttribute("id", "solveButton");
-    solveButton.setAttribute("onclick", "solveWar()");
+    solveButton.setAttribute("onclick", "finishRoundButton()");
     solveButton.setAttribute("class", "gameButtons");
     solveButton.innerHTML = "FINISH ROUND";
     getMe("centerDiv").appendChild(solveButton);
+    deck.board.push(flippedCard1);
+    deck.board.push(flippedCard2);
 }
+
+
+function finishRoundButton() {
+    if (Number(deck.board[0].rank) > Number(deck.board[1].rank)) {
+        player1.myWonDeck.push(deck.board[0]);
+        player1.myWonDeck.push(deck.board[1]);
+        alert("player 1 has a bigger card");
+    }
+    else if (Number(deck.board[0].rank) == Number(deck.board[1].rank)) {
+        alert("DRAW! not implemented yet");
+    }
+    else {
+        player2.myWonDeck.push(deck.board[0]);
+        player2.myWonDeck.push(deck.board[1]);
+        alert("player 2 has a bigger card");
+    }
+    
+}
+
 
 
 
