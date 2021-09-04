@@ -138,6 +138,14 @@ function dealCardsButton() {
             player2.myDeck.push(deck.deckie[i]);
         }
     }
+    let p1Feed = document.createElement("H3");
+    let p2Feed = document.createElement("H3");
+    p1Feed.setAttribute("id", "p1Feed");
+    p2Feed.setAttribute("id", "p2Feed");
+    p1Feed.innerHTML = "Player 1 won: <span id='p1Won'>0</span> cards"; 
+    p2Feed.innerHTML = "Player 2 won: <span id='p2Won'>0</span> cards";  
+    getMe("leftDiv").appendChild(p1Feed);
+    getMe("rightDiv").appendChild(p2Feed);
 }
 
 
@@ -163,6 +171,7 @@ function finishRoundButton() {
     if (Number(deck.board[0].rank) > Number(deck.board[1].rank)) {
         player1.myWonDeck.push(deck.board[0]);
         player1.myWonDeck.push(deck.board[1]);
+        getMe("p1Won").innerHTML = String(player1.myWonDeck.length);
         alert("player 1 has a bigger card");
     }
     else if (Number(deck.board[0].rank) == Number(deck.board[1].rank)) {
@@ -171,6 +180,7 @@ function finishRoundButton() {
     else {
         player2.myWonDeck.push(deck.board[0]);
         player2.myWonDeck.push(deck.board[1]);
+        getMe("p2Won").innerHTML = String(player2.myWonDeck.length);
         alert("player 2 has a bigger card");
     }
     
