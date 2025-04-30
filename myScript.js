@@ -1,4 +1,4 @@
-"use script";
+"use strict";
 
 class Card {
     constructor(rank, suit) {
